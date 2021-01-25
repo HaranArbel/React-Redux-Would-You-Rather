@@ -1,5 +1,5 @@
-import { _saveQuestionAnswer } from "../../../_DATA";
 import { addAnswerToQuestion } from './questions'
+import { saveQuestionAnswer } from "../utils/API";
 
 export const RECEIVE_USERS_DATA = "RECEIVE_USERS_DATA"
 export const ADD_QUESTION_TO_USER = "ADD_QUESTION_TO_USER"
@@ -33,7 +33,7 @@ export function handleSaveQuestionAnswer(authedUser, qid, answer) {
     return dispatch => {
         dispatch(addAnswerToUser(authedUser, qid, answer))
         dispatch(addAnswerToQuestion(authedUser, qid, answer))
-        return _saveQuestionAnswer({authedUser, qid, answer}).catch(() =>
+        return saveQuestionAnswer({authedUser, qid, answer}).catch(() =>
             alert('An error occurred, try again.')
         )
     }
