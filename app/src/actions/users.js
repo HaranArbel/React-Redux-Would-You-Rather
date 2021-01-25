@@ -12,11 +12,11 @@ export function receiveUsersData(users){
     }
 }
 
-export function addQuestionToUser(authedUser, qid){
+export function addQuestionToUser(author, id){
     return {
         type: ADD_QUESTION_TO_USER,
-        authedUser,
-        qid
+        author,
+        id
     }
 }
 
