@@ -1,9 +1,14 @@
-import { useState, useEffect } from 'react'
+import React from 'react'
+import {Route} from 'react-router-dom';
+import {useEffect} from 'react'
+import {connect} from 'react-redux';
 import './App.css';
-import { React } from 'react'
+import Home from './Home';
+import Login from './Login';
 import handleInitialData from "../actions/shared";
 
-function App() {
+
+function App({authedUser}) {
 
     useEffect(() => {
         handleInitialData()
@@ -11,9 +16,19 @@ function App() {
 
     return (
         <div className="App">
-           Hello
+            {authedUser !== null ?
+                <Login/>
+                :
+                <Route exact_path='/' component={Home}/>
+            }
         </div>
     );
 }
 
-export default App;
+function mapStateToProps({authedUser}) {
+    return {
+        authedUser
+    };
+}
+
+export default connect(mapStateToProps, {handleInitialData})(App);
