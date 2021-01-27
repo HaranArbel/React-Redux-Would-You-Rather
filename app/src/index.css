@@ -11,3 +11,17 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.Login-Container {
+  display: flex;
+  justify-content: center;
+}
+
+.Login-box {
+  margin: 90px;
+}
+
+.Login-Image {
+  height: 200px;
+  width: 200px;
+}

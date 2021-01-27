@@ -5,10 +5,10 @@ import {
     Header
 } from 'semantic-ui-react';
 
+
 function Login() {
 
     const [value, setValue] = useState(null)
-    const [users, setUsers] = useState(null)
     const disabled = value === '' ? true : false;
 
     const handleSubmit = () => {
@@ -45,26 +45,28 @@ function Login() {
 
     return (
 
-        <div className="Login">
-            <h1>Welcome to the Would You Rather App!</h1>
-            <h2>Please sign in to continue</h2>
-            <img src="/images/avatars/tiger.jpg" alt="login image"/>
-            <Form onSubmit={handleSubmit}>
-                <Header as="h2" color="blue">
-                    Sign In
-                </Header>
-                <Form.Dropdown
-                    placeholder="Select a user"
-                    fluid
-                    selection
-                    scrolling
-                    options={generateDropdownData(users)}
-                    value={value}
-                    onChange={onChange}
-                    required
-                />
-                <Form.Button content="Login" positive disabled={disabled} fluid/>
-            </Form>
+        <div className="Login-Container">
+            <div className="Login-box">
+                <h1>Welcome to the Would You Rather App!</h1>
+                <h2>Please sign in to continue</h2>
+                <img className="Login-Image" src="/images/avatars/tiger.jpg" alt="login image"/>
+                <Form onSubmit={handleSubmit}>
+                    <Header as="h2" color="blue">
+                        Sign In
+                    </Header>
+                    <Form.Dropdown
+                        placeholder="Select a user"
+                        fluid
+                        selection
+                        scrolling
+                        options={generateDropdownData()}
+                        value={value}
+                        onChange={onChange}
+                        require
+                    />
+                    <Form.Button content="Login" positive disabled={disabled} fluid/>
+                </Form>
+            </div>
         </div>
     );
 }
