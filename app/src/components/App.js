@@ -2,7 +2,6 @@ import React from 'react'
 import {Route} from 'react-router-dom';
 import {useEffect} from 'react'
 import {connect} from 'react-redux';
-import './App.css';
 import Home from './Home';
 import Login from './Login';
 import handleInitialData from "../actions/shared";
@@ -18,6 +17,10 @@ function App({authedUser}) {
         <div className="App">
             {authedUser !== null ?
                 <Login/>
+                // <div>
+                //     <Route exact_path='/' component={Home}/>
+                //     <p className="flex-item-p">Hello</p>
+                // </div>
                 :
                 <Route exact_path='/' component={Home}/>
             }

@@ -12,10 +12,20 @@ code {
     monospace;
 }
 
+.App {
+  align-content: center;
+  /*display: flex;*/
+  /*justify-content: center;*/
+}
+
 .Login-Container {
   display: flex;
   justify-content: center;
 }
+
+/*.flex-item-p{*/
+/*  color: #61dafb;*/
+/*}*/
 
 .Login-box {
   margin: 90px;
