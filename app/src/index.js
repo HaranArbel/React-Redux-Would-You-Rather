@@ -7,8 +7,9 @@ import './index.css';
 import App from './components/App';
 import reducer from './reducers'
 import 'semantic-ui-css/semantic.min.css'
+import middleware from './middleware'
 
-const store = createStore(reducer);
+const store = createStore(reducer, middleware);
 
 ReactDOM.render(
     <BrowserRouter>

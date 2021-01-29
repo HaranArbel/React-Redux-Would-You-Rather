@@ -1,42 +1,47 @@
 import React from 'react'
 import {useState} from 'react'
 import {connect} from 'react-redux';
-import { setAuthedUser } from '../actions/authUser';
+import setAuthedUser from '../actions/authedUser';
 
 import {
     Form,
     Header
 } from 'semantic-ui-react';
 
-function Login(props) {
+function Login({users, setAuthedUser}) {
 
-    const [value, setValue] = useState(null)
+    const [value, setValue] = useState('')
     const disabled = value === '' ? true : false;
 
-    const handleSubmit = () => {
+    // const handleSubmit = (e) => {
+    //     e.preventDefault()
+    //     if (value == undefined){
+    //         alert("the value is undefined :(")
+    //     }
+    //     if (e.target.value == undefined){
+    //         alert("this value too is undefined :((")
+    //     }
+    //     setAuthedUser(value)
+    // }
+    //
+    // const onChange = (e) => {
+    //     e.preventDefault()
+    //     const { value } = e.target
+    //     setValue(value)
+    // }
 
-    }
+    const onChange = (e, {value}) => {
+        setValue(value);
+    };
+    const handleSubmit = e => {
+        e.preventDefault();
+        const authedUser = value;
+        setAuthedUser(authedUser)
+    };
 
-    const onChange = () => {
-
-    }
 
     const generateDropdownData = () => {
-
-        // const users = [
-        //     {
-        //         id: 'sarahedo',
-        //         name: 'Sarah Edo',
-        //         avatarURL: '/images/avatars/tiger.jpg',
-        //     },
-        //     {
-        //         id: 'sarahedo',
-        //         name: 'Sarah Edo',
-        //         avatarURL: '/images/avatars/tiger.jpg',
-        //     },
-        //
-        // ]
-        const { users } = props
+        // const { users } = props
         return users.map(user => ({
             key: user.id,
             text: user.name,
@@ -45,8 +50,10 @@ function Login(props) {
         }));
     };
 
+    console.log("value: " + value)
 
     return (
+
 
         // <div className="Login-Container">
         <div className="Login-box">
@@ -73,25 +80,14 @@ function Login(props) {
         // </div>
     );
 }
-//
-// function mapStateToProps(state){
-//     return {
-//         users: Object.values(state.users)
-//     }
-// }
-//
-// export const ConnectedLogin = connect(mapStateToProps)(Login)
 
-
-const ConnectedLoginForm = connect(
-  mapStateToProps,
-  { setAuthedUser }
-)(Login);
-
-function mapStateToProps({ users }) {
-  return {
-    users: Object.values(users)
-  };
+function mapStateToProps({users}) {
+    return {
+        users: Object.values(users)
+    };
 }
 
-export default Login;
+export default connect(
+    mapStateToProps,
+    {setAuthedUser}
+)(Login);

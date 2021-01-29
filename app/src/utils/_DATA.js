@@ -1,20 +1,8 @@
 let users = {
-    sarahedo: {
-        id: 'sarahedo',
-        name: 'Sarah Edo',
-        avatarURL: '/images/avatars/rabbit.png',
-        answers: {
-            "8xf0y6ziyjabvozdd253nd": 'optionOne',
-            "6ni6ok3ym7mf1p33lnez": 'optionTwo',
-            "am8ehyc8byjqgar0jgpub9": 'optionTwo',
-            "loxhs1bqm25b708cmbf3g": 'optionTwo'
-        },
-        questions: ['8xf0y6ziyjabvozdd253nd', 'am8ehyc8byjqgar0jgpub9']
-    },
     tylermcginnis: {
         id: 'tylermcginnis',
         name: 'Tyler McGinnis',
-        avatarURL: '/images/avatars/lion.png',
+        avatarURL: '/images/avatars/gorilla.jpg',
         answers: {
             "vthrdm985a262al8qx3do": 'optionOne',
             "xj352vofupe1dqz9emx13r": 'optionTwo',
@@ -24,23 +12,79 @@ let users = {
     johndoe: {
         id: 'johndoe',
         name: 'John Doe',
-        avatarURL: '/images/avatars/monkey.png',
+        avatarURL: '/images/avatars/fox.jpg',
         answers: {
             "xj352vofupe1dqz9emx13r": 'optionOne',
             "vthrdm985a262al8qx3do": 'optionTwo',
             "6ni6ok3ym7mf1p33lnez": 'optionTwo'
         },
         questions: ['6ni6ok3ym7mf1p33lnez', 'xj352vofupe1dqz9emx13r'],
-    }
+    },
+    haran: {
+        id: 'haran',
+        name: 'Haran Arbel',
+        avatarURL: '/images/avatars/cat.jpg',
+        answers: {
+            "xj352vofupe1dqz9emx13r": 'optionOne',
+            "vthrdm985a262al8qx3do": 'optionTwo',
+            "6ni6ok3ym7mf1p33lnez": 'optionTwo'
+        },
+        questions: ['6ni6ok3ym7mf1p33lnez', 'xj352vofupe1dqz9emx13r'],
+    },
+    tahel: {
+        id: 'tahel',
+        name: 'Tahel Arbel',
+        avatarURL: '/images/avatars/koala.jpg',
+        answers: {
+            "xj352vofupe1dqz9emx13r": 'optionOne',
+            "vthrdm985a262al8qx3do": 'optionTwo',
+            "6ni6ok3ym7mf1p33lnez": 'optionTwo'
+        },
+        questions: ['6ni6ok3ym7mf1p33lnez', 'xj352vofupe1dqz9emx13r'],
+    },
+    Meir: {
+        id: 'Meir',
+        name: 'Meir Arbel',
+        avatarURL: '/images/avatars/dog.jpg',
+        answers: {
+            "xj352vofupe1dqz9emx13r": 'optionOne',
+            "vthrdm985a262al8qx3do": 'optionTwo',
+            "6ni6ok3ym7mf1p33lnez": 'optionTwo'
+        },
+        questions: ['6ni6ok3ym7mf1p33lnez', 'xj352vofupe1dqz9emx13r'],
+    },
+    Nina: {
+        id: 'Nina',
+        name: 'Nina Arbel',
+        avatarURL: '/images/avatars/lion.jpg',
+        answers: {
+            "xj352vofupe1dqz9emx13r": 'optionOne',
+            "vthrdm985a262al8qx3do": 'optionTwo',
+            "6ni6ok3ym7mf1p33lnez": 'optionTwo'
+        },
+        questions: ['6ni6ok3ym7mf1p33lnez', 'xj352vofupe1dqz9emx13r'],
+    },
+    Chai: {
+        id: 'Chai',
+        name: 'Chai',
+        avatarURL: '/images/avatars/rabbit.jpg',
+        answers: {
+            "xj352vofupe1dqz9emx13r": 'optionOne',
+            "vthrdm985a262al8qx3do": 'optionTwo',
+            "6ni6ok3ym7mf1p33lnez": 'optionTwo'
+        },
+        questions: ['6ni6ok3ym7mf1p33lnez', 'xj352vofupe1dqz9emx13r'],
+    },
+
 }
 
 let questions = {
     "8xf0y6ziyjabvozdd253nd": {
         id: '8xf0y6ziyjabvozdd253nd',
-        author: 'sarahedo',
+        author: 'Nina',
         timestamp: 1467166872634,
         optionOne: {
-            votes: ['sarahedo'],
+            votes: ['Nina'],
             text: 'have horrible short term memory',
         },
         optionTwo: {
@@ -57,20 +101,20 @@ let questions = {
             text: 'become a superhero',
         },
         optionTwo: {
-            votes: ['johndoe', 'sarahedo'],
+            votes: ['johndoe', 'Meir'],
             text: 'become a supervillain'
         }
     },
     "am8ehyc8byjqgar0jgpub9": {
         id: 'am8ehyc8byjqgar0jgpub9',
-        author: 'sarahedo',
+        author: 'haran',
         timestamp: 1488579767190,
         optionOne: {
             votes: [],
             text: 'be telekinetic',
         },
         optionTwo: {
-            votes: ['sarahedo'],
+            votes: ['tahel'],
             text: 'be telepathic'
         }
     },
@@ -83,7 +127,7 @@ let questions = {
             text: 'be a front-end developer',
         },
         optionTwo: {
-            votes: ['sarahedo'],
+            votes: ['haran'],
             text: 'be a back-end developer'
         }
     },

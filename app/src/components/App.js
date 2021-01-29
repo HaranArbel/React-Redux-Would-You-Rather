@@ -5,8 +5,9 @@ import {connect} from 'react-redux';
 import Home from './Home';
 import Login from './Login';
 import handleInitialData from "../actions/shared";
+import LoadingBar from "react-redux-loading";
 
-function App({authedUser}) {
+function App({handleInitialData, authedUser}) {
 
     useEffect(() => {
         handleInitialData()
@@ -14,7 +15,8 @@ function App({authedUser}) {
 
     return (
         <div className="App">
-            {authedUser !== null ?
+            <LoadingBar/>
+            {authedUser === null ?
                 <Login/>
                 // <div className="try">
                 //     <Nav/>
@@ -33,22 +35,19 @@ function App({authedUser}) {
                 //     </div>
                 // </div>
                 :
-                <Route exact_path='/' component={Home}/>
+                <Route exact path='/' component={Home}/>
             }
         </div>
     );
 }
 
-function mapStateToProps({ authUser }) {
+function mapStateToProps({ authedUser }) {
   return {
-    authUser
+    authedUser,
   };
 }
-//
-// function mapStateToProps({authedUser}) {
-//     return {
-//         authedUser
-//     };
-// }
 
-export default connect(mapStateToProps, {handleInitialData})(App);
+export default connect(
+    mapStateToProps,
+    { handleInitialData }
+)(App);

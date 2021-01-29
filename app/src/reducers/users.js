@@ -4,10 +4,13 @@ import {
     ADD_ANSWER_TO_USER,
 } from "../actions/users";
 
-export function users(state = [], action) {
+export function users(state = {}, action) {
     switch (action.type) {
         case RECEIVE_USERS_DATA:
-            return action.users
+            return {
+                ...state,
+                ...action.users
+            }
         case ADD_QUESTION_TO_USER:
             const {author, id} = action
             return {

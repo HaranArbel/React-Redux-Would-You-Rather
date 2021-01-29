@@ -5,23 +5,26 @@ import {
     Image,
     Button
 } from 'semantic-ui-react';
+import {connect} from "react-redux";
 
-function Nav() {
+function Nav({ users, authedUser }) {
 
     const handleLogout = () => {
 
     }
 
+    // alert("user is: " +authedUser)
     return (
+
         <div>
-            <Menu size="big" as={Menu} pointing secondary>
+            <Menu size="large" as={Menu} pointing secondary>
                 <Menu.Item name="home" as={NavLink} to="/" exact/>
                 <Menu.Item name="new poll" as={NavLink} to="/add"/>
                 <Menu.Item name="leaderboard" as={NavLink} to="/leaderboard"/>
                 <Menu.Menu position="right">
                     <Menu.Item fitted="horizontally">
                         <Image
-                            src="/images/avatars/tiger.jpg"
+                            src={users[authedUser].avatarURL}
                             avatar
                             // spaced="right"
                             // verticalAlign="middle"
@@ -46,4 +49,12 @@ function Nav() {
     );
 }
 
-export default Nav;
+
+function mapStateToProps({ authedUser, users }) {
+  return {
+    authedUser: authedUser,
+    users: users
+  };
+}
+
+export default connect(mapStateToProps)(Nav);
