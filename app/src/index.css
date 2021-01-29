@@ -13,18 +13,26 @@ code {
 }
 
 .App {
-  align-content: center;
-  /*display: flex;*/
-  /*justify-content: center;*/
-}
-
-.Login-Container {
   display: flex;
   justify-content: center;
+  text-align: center;
 }
 
-/*.flex-item-p{*/
-/*  color: #61dafb;*/
+.App-Content{
+  margin: 90px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  /*!*height: 400px;*!*/
+  /*background-color: red;*/
+
+}
+
+/*.Login-Container {*/
+/*  display: flex;*/
+/*  justify-content: center;*/
 /*}*/
 
 .Login-box {
@@ -34,4 +42,21 @@ code {
 .Login-Image {
   height: 200px;
   width: 200px;
+}
+
+.Nav {
+  /*position: absolute;*/
+  /*justify-content: start;*/
+  /*align-items: center;*/
+  /*width: 40%;*/
+  /*top: 20px;*/
+}
+
+.try {
+  width: 60%;
+  /*margin: 12px;*/
+}
+
+.App-Content-item{
+  /*margin: 15px;*/
 }

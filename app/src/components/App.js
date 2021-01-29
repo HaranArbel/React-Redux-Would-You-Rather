@@ -6,7 +6,6 @@ import Home from './Home';
 import Login from './Login';
 import handleInitialData from "../actions/shared";
 
-
 function App({authedUser}) {
 
     useEffect(() => {
@@ -17,9 +16,21 @@ function App({authedUser}) {
         <div className="App">
             {authedUser !== null ?
                 <Login/>
-                // <div>
-                //     <Route exact_path='/' component={Home}/>
-                //     <p className="flex-item-p">Hello</p>
+                // <div className="try">
+                //     <Nav/>
+                //     <div className="App-Content">
+                //         <Route exact_path='/' component={Home}/>
+                //         <p className="App-Content-item">Hello</p>
+                //         <p className="App-Content-item">Hello</p>
+                //         <p className="App-Content-item">Hello</p>
+                //         <p className="App-Content-item">Hello</p>
+                //         <p className="App-Content-item">Hello</p>
+                //         <p className="App-Content-item">Hello</p>
+                //         <p className="App-Content-item">Hello</p>
+                //         <p className="App-Content-item">Hello</p>
+                //         <p className="App-Content-item">Hello</p>
+                //         <p className="App-Content-item">Hello</p>
+                //     </div>
                 // </div>
                 :
                 <Route exact_path='/' component={Home}/>
@@ -28,10 +39,16 @@ function App({authedUser}) {
     );
 }
 
-function mapStateToProps({authedUser}) {
-    return {
-        authedUser
-    };
+function mapStateToProps({ authUser }) {
+  return {
+    authUser
+  };
 }
+//
+// function mapStateToProps({authedUser}) {
+//     return {
+//         authedUser
+//     };
+// }
 
 export default connect(mapStateToProps, {handleInitialData})(App);
