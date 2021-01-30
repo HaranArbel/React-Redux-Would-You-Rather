@@ -1,7 +1,7 @@
 import React from 'react'
 import {useState} from 'react'
 import {connect} from 'react-redux';
-import setAuthedUser from '../actions/authedUser';
+import { setAuthedUser } from '../actions/authedUser';
 
 import {
     Form,
@@ -13,35 +13,15 @@ function Login({users, setAuthedUser}) {
     const [value, setValue] = useState('')
     const disabled = value === '' ? true : false;
 
-    // const handleSubmit = (e) => {
-    //     e.preventDefault()
-    //     if (value == undefined){
-    //         alert("the value is undefined :(")
-    //     }
-    //     if (e.target.value == undefined){
-    //         alert("this value too is undefined :((")
-    //     }
-    //     setAuthedUser(value)
-    // }
-    //
-    // const onChange = (e) => {
-    //     e.preventDefault()
-    //     const { value } = e.target
-    //     setValue(value)
-    // }
-
     const onChange = (e, {value}) => {
         setValue(value);
     };
     const handleSubmit = e => {
         e.preventDefault();
-        const authedUser = value;
-        setAuthedUser(authedUser)
+        setAuthedUser(value)
     };
 
-
     const generateDropdownData = () => {
-        // const { users } = props
         return users.map(user => ({
             key: user.id,
             text: user.name,

@@ -6,16 +6,16 @@ import {
     Button
 } from 'semantic-ui-react';
 import {connect} from "react-redux";
+import { setAuthedUser } from '../actions/authedUser'
 
-function Nav({ users, authedUser }) {
+function Nav({ users, authedUser, setAuthedUser }) {
 
-    const handleLogout = () => {
-
+    const handleLogout = e => {
+        e.preventDefault()
+        setAuthedUser(null)
     }
 
-    // alert("user is: " +authedUser)
     return (
-
         <div>
             <Menu size="large" as={Menu} pointing secondary>
                 <Menu.Item name="home" as={NavLink} to="/" exact/>
@@ -26,20 +26,17 @@ function Nav({ users, authedUser }) {
                         <Image
                             src={users[authedUser].avatarURL}
                             avatar
-                            // spaced="right"
-                            // verticalAlign="middle"
                             size="mini"
                         />
                     </Menu.Item>
                     <Menu.Item>
                         <Button
                             content="Logout"
-                            // labelPosition="right"
-                            // labelPosition="right"
+                            labelPosition="right"
                             basic
-                            // compact
-                            // icon="log out"
-                            // size="big"
+                            compact
+                            icon="log out"
+                            size="large"
                             onClick={handleLogout}
                         />
                     </Menu.Item>
@@ -57,4 +54,7 @@ function mapStateToProps({ authedUser, users }) {
   };
 }
 
-export default connect(mapStateToProps)(Nav);
+export default connect(
+    mapStateToProps,
+    { setAuthedUser }
+)(Nav);
