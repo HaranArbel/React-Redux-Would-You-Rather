@@ -28,7 +28,7 @@ export function addAnswerToQuestion(authedUser, qid, answer) {
   };
 }
 
-export function handleSaveQuestion (optionOne, optionTwo, author) { //save question
+export function handleSaveQuestion (optionOne, optionTwo, author) {
     return dispatch => {
         return saveQuestion({optionOne, optionTwo, author}).then(question => {
             dispatch(addQuestion(question))

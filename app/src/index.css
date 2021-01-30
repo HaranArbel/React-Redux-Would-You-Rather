@@ -15,25 +15,25 @@ code {
 .App {
   display: flex;
   justify-content: center;
+  align-items: center;
   text-align: center;
+  flex-direction: column;
+  /*border: solid green;*/
 }
 
-/*.App-Content{*/
-/*  margin: 90px;*/
-/*  display: flex;*/
-/*  flex-direction: column;*/
-/*  justify-content: space-between;*/
-/*  align-items: center;*/
+.Content{
+  width: 70%;
+  /*border: solid red;*/
+}
 
-/*  !*!*height: 400px;*!*!*/
-/*  !*background-color: red;*!*/
+.NewPoll{
+  position: relative;
+  margin-left: 33.3%;
+  margin-top: 5%;
+  width: 33.3%;
+  /*border: solid blue;*/
 
-/*}*/
-
-/*.Login-Container {*/
-/*  display: flex;*/
-/*  justify-content: center;*/
-/*}*/
+}
 
 .Login-box {
   margin: 90px;
@@ -44,27 +44,3 @@ code {
   width: 200px;
 }
 
-.Container {
-  /*whattts up with the absolute????*/
-  position: absolute;
-  width: 60%;
-}
-
-/*.Nav {*/
-/*  display: flex;*/
-/*  width: 80%;*/
-/*  background-color: red;*/
-/*}*/
-
-/*.Home {*/
-/*  !*background-color: blue;*!*/
-/*  !*width: 80%;*!*/
-/*}*/
-/*.try {*/
-/*  width: 60%;*/
-/*  !*margin: 12px;*!*/
-/*}*/
-
-/*.App-Content-item{*/
-/*  !*margin: 15px;*!*/
-/*}*/

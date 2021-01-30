@@ -1,7 +1,7 @@
-
+import React from 'react'
 function PollResult() {
     return (
-        <div className="PollResult">
+        <div>
         </div>
     );
 }

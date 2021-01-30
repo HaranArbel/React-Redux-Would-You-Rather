@@ -1,7 +1,7 @@
 import React from 'react'
 import {useState} from 'react'
 import {connect} from 'react-redux';
-import { setAuthedUser } from '../actions/authedUser';
+import {setAuthedUser} from '../actions/authedUser';
 
 import {
     Form,
@@ -30,12 +30,7 @@ function Login({users, setAuthedUser}) {
         }));
     };
 
-    console.log("value: " + value)
-
     return (
-
-
-        // <div className="Login-Container">
         <div className="Login-box">
             <h1>Welcome to the Would You Rather App!</h1>
             <h2>Please sign in to continue</h2>
@@ -57,7 +52,6 @@ function Login({users, setAuthedUser}) {
                 <Form.Button content="Login" positive disabled={disabled} fluid/>
             </Form>
         </div>
-        // </div>
     );
 }
 

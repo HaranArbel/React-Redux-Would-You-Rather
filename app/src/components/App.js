@@ -11,6 +11,7 @@ import handleInitialData from "../actions/shared";
 import LoadingBar from "react-redux-loading";
 import NewPoll from "./NewPoll";
 import Leaderboard from "./Leaderboard";
+import Nav from "./Nav";
 
 function App({handleInitialData, authedUser}) {
 
@@ -24,12 +25,14 @@ function App({handleInitialData, authedUser}) {
             {authedUser === null ?
                 <Route path="/" component={Login}/>
                 :
-                <Switch>
-                    <Route exact path='/' component={Home}/>
-                    <Route exact path='/' component={Home}/>
-                    <Route path='/add' component={NewPoll}/>
-                    <Route path='/leaderboard' component={Leaderboard}/>
-                </Switch>
+                <div className="Content">
+                    <Nav/>
+                    <Switch>
+                        <Route exact path='/' component={Home}/>
+                        <Route path='/add' component={NewPoll}/>
+                        <Route path='/leaderboard' component={Leaderboard}/>
+                    </Switch>
+                </div>
             }
         </div>
     );

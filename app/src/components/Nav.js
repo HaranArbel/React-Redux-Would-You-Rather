@@ -1,8 +1,6 @@
 import React from 'react'
-import {NavLink, Link} from 'react-router-dom'
+import {NavLink} from 'react-router-dom'
 import {
-    Responsive,
-    Grid,
     Menu,
     Image,
     Button,
@@ -18,25 +16,20 @@ function Nav({users, authedUser, setAuthedUser}) {
     }
 
     return (
-        <Menu
-            fluid
-            size="huge"
-            pointing secondary
-        >
+        <Menu fluid size="huge" pointing secondary>
             <Menu.Item name="home" as={NavLink} to="/" exact/>
             <Menu.Item name="new poll" as={NavLink} to="/add"/>
             <Menu.Item name="leaderboard" as={NavLink} to="/leaderboard"/>
             <Menu.Menu position="right">
                 <Menu.Item>
-                        <span>
-                            <Image
-                                src={users[authedUser].avatarURL}
-                                avatar
-                                size="mini"
-                                verticalAlign="bottom"
-
-                            />
-                            {users[authedUser].name}
+                    <span>
+                        <Image
+                            src={users[authedUser].avatarURL}
+                            avatar
+                            size="mini"
+                            verticalAlign="bottom"
+                        />
+                        {users[authedUser].name}
                         </span>
                 </Menu.Item>
                 <Menu.Item>
@@ -53,6 +46,7 @@ function Nav({users, authedUser, setAuthedUser}) {
             </Menu.Menu>
         </Menu>
     );
+
 }
 
 
