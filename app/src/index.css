@@ -18,17 +18,17 @@ code {
   text-align: center;
 }
 
-.App-Content{
-  margin: 90px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
+/*.App-Content{*/
+/*  margin: 90px;*/
+/*  display: flex;*/
+/*  flex-direction: column;*/
+/*  justify-content: space-between;*/
+/*  align-items: center;*/
 
-  /*!*height: 400px;*!*/
-  /*background-color: red;*/
+/*  !*!*height: 400px;*!*!*/
+/*  !*background-color: red;*!*/
 
-}
+/*}*/
 
 /*.Login-Container {*/
 /*  display: flex;*/
@@ -44,19 +44,27 @@ code {
   width: 200px;
 }
 
-.Nav {
-  /*position: absolute;*/
-  /*justify-content: start;*/
-  /*align-items: center;*/
-  /*width: 40%;*/
-  /*top: 20px;*/
-}
-
-.try {
+.Container {
+  /*whattts up with the absolute????*/
+  position: absolute;
   width: 60%;
-  /*margin: 12px;*/
 }
 
-.App-Content-item{
-  /*margin: 15px;*/
-}
+/*.Nav {*/
+/*  display: flex;*/
+/*  width: 80%;*/
+/*  background-color: red;*/
+/*}*/
+
+/*.Home {*/
+/*  !*background-color: blue;*!*/
+/*  !*width: 80%;*!*/
+/*}*/
+/*.try {*/
+/*  width: 60%;*/
+/*  !*margin: 12px;*!*/
+/*}*/
+
+/*.App-Content-item{*/
+/*  !*margin: 15px;*!*/
+/*}*/

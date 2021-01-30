@@ -1,5 +1,8 @@
 import React from 'react'
-import {Route} from 'react-router-dom';
+import {
+    Route,
+    Switch
+} from 'react-router-dom';
 import {useEffect} from 'react'
 import {connect} from 'react-redux';
 import Home from './Home';
@@ -19,30 +22,14 @@ function App({handleInitialData, authedUser}) {
         <div className="App">
             <LoadingBar/>
             {authedUser === null ?
-                <Route exact path ="/" component={Login}/>
-                // <div className="try">
-                //     <Nav/>
-                //     <div className="App-Content">
-                //         <Route exact_path='/' component={Home}/>
-                //         <p className="App-Content-item">Hello</p>
-                //         <p className="App-Content-item">Hello</p>
-                //         <p className="App-Content-item">Hello</p>
-                //         <p className="App-Content-item">Hello</p>
-                //         <p className="App-Content-item">Hello</p>
-                //         <p className="App-Content-item">Hello</p>
-                //         <p className="App-Content-item">Hello</p>
-                //         <p className="App-Content-item">Hello</p>
-                //         <p className="App-Content-item">Hello</p>
-                //         <p className="App-Content-item">Hello</p>
-                //     </div>
-                // </div>
+                <Route path="/" component={Login}/>
                 :
-                <Route exact path='/' component={Home}/>
-                // <div>
-                //     <Route exact path='/' component={Home}/>
-                //     <Route path='/add' component={NewPoll}/>
-                //     <Route path='/leaderboard' component={Leaderboard}/>
-                // </div>
+                <Switch>
+                    <Route exact path='/' component={Home}/>
+                    <Route exact path='/' component={Home}/>
+                    <Route path='/add' component={NewPoll}/>
+                    <Route path='/leaderboard' component={Leaderboard}/>
+                </Switch>
             }
         </div>
     );
