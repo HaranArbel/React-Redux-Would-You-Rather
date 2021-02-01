@@ -5,13 +5,14 @@ import {
 } from 'react-router-dom';
 import {useEffect} from 'react'
 import {connect} from 'react-redux';
-import Home from './Home';
-import Login from './Login';
 import handleInitialData from "../actions/shared";
 import LoadingBar from "react-redux-loading";
 import NewPoll from "./NewPoll";
 import Leaderboard from "./Leaderboard";
+import UserCard from "./UserCard";
 import Nav from "./Nav";
+import Home from './Home';
+import Login from './Login';
 
 function App({handleInitialData, authedUser}) {
 
@@ -31,6 +32,7 @@ function App({handleInitialData, authedUser}) {
                         <Route exact path='/' component={Home}/>
                         <Route path='/add' component={NewPoll}/>
                         <Route path='/leaderboard' component={Leaderboard}/>
+                        <Route path="/questions/:question_id" component={UserCard}/>
                     </Switch>
                 </div>
             }

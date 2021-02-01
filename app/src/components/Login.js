@@ -5,7 +5,9 @@ import {setAuthedUser} from '../actions/authedUser';
 
 import {
     Form,
-    Header
+    Header,
+    Image,
+    Segment
 } from 'semantic-ui-react';
 
 function Login({users, setAuthedUser}) {
@@ -32,25 +34,31 @@ function Login({users, setAuthedUser}) {
 
     return (
         <div className="Login-box">
-            <h1>Welcome to the Would You Rather App!</h1>
-            <h2>Please sign in to continue</h2>
-            <img className="Login-Image" src="/images/avatars/tiger.jpg" alt="login image"/>
-            <Form onSubmit={handleSubmit}>
-                <Header as="h2" color="blue">
-                    Sign In
+            <Segment>
+                <Header as="h1">
+                    Welcome to the Would You Rather App!
                 </Header>
-                <Form.Dropdown
-                    placeholder="Select a user"
-                    fluid
-                    selection
-                    scrolling
-                    options={generateDropdownData()}
-                    value={value}
-                    onChange={onChange}
-                    require
-                />
-                <Form.Button content="Login" positive disabled={disabled} fluid/>
-            </Form>
+                <Header as="h2">
+                    Please sign in to continue
+                </Header>
+                <Image centered size="small" src="/images/avatars/tiger.jpg" alt="login image"/>
+                <Form onSubmit={handleSubmit}>
+                    <Header as="h2" color="grey">
+                        Sign In
+                    </Header>
+                    <Form.Dropdown
+                        placeholder="Select a user"
+                        fluid
+                        selection
+                        scrolling
+                        options={generateDropdownData()}
+                        value={value}
+                        onChange={onChange}
+                        require
+                    />
+                    <Form.Button content="Login" positive disabled={disabled} fluid/>
+                </Form>
+            </Segment>
         </div>
     );
 }

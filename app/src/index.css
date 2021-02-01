@@ -18,12 +18,12 @@ code {
   align-items: center;
   text-align: center;
   flex-direction: column;
-  /*border: solid green;*/
+  border: solid green;
 }
 
 .Content{
   width: 70%;
-  /*border: solid red;*/
+  border: solid red;
 }
 
 .NewPoll{
@@ -37,6 +37,8 @@ code {
 
 .Login-box {
   margin: 90px;
+  /*border: solid red;*/
+
 }
 
 .Login-Image {
@@ -44,3 +46,15 @@ code {
   width: 200px;
 }
 
+.UserCard{
+  /*width: 500px;*/
+  /*border: pink solid;*/
+  /*position: relative;*/
+  /*margin-left: 33.3%;*/
+  /*margin-top: 5%;*/
+  /*width: 33.3%;*/
+}
+
+.UserCardContainer{
+  /*width:700px;*/
+}

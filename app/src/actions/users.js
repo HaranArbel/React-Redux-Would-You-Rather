@@ -33,7 +33,7 @@ export function handleSaveQuestionAnswer(authedUser, qid, answer) {
     return dispatch => {
         dispatch(addAnswerToUser(authedUser, qid, answer))
         dispatch(addAnswerToQuestion(authedUser, qid, answer))
-        return saveQuestionAnswer({authedUser, qid, answer}).catch(() =>
+        return saveQuestionAnswer(authedUser, qid, answer).catch(() =>
             alert('An error occurred, try again.')
         )
     }
