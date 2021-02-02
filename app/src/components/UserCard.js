@@ -32,15 +32,17 @@ const PollContent = ({pollStatus, question, unanswered}) => {
 
 function UserCard({question, author, pollStatus, unanswered, qid}) {
 
+    const borderTop = unanswered === true ? `2px solid #21ba45` : `2px solid #33B5FF`;
+
     return (
         <div className="UserCard">
-            <Segment>
+            <Segment size="large">
                 <Header
                     as="h4"
                     textAlign="left"
                     block
                     attached="top"
-                    style={{borderTop: `1px solid grey`}}
+                    style={{borderTop: borderTop}}
                 >
                     {author.name} asks:
                 </Header>

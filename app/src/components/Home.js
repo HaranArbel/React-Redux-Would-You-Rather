@@ -1,7 +1,7 @@
 import React from 'react'
 import {connect} from "react-redux";
 import UserCard from "./UserCard";
-import {Tab} from "semantic-ui-react";
+import {Tab, Grid} from "semantic-ui-react";
 
 
 function Home({userQuestionData}) {
@@ -36,7 +36,9 @@ function Home({userQuestionData}) {
     ];
 
     return (
-        <Tab panes={panes}/>
+        <Grid centered padded>
+            <Tab panes={panes}/>
+        </Grid>
     )
 }
 

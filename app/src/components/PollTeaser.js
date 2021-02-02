@@ -11,7 +11,8 @@ function PollQuestion({question, unanswered}) {
     const [value, setValue] = useState('')
 
     const disabled = value === '' ? true : false;
-    const buttonColor = unanswered === true ? "green" : "blue";
+    // const buttonColor = unanswered === true ? "\#21ba45" : "\#33F0FF";
+    const buttonColor = unanswered === true ? `green` : `blue`;
     // const buttonColor = unanswered === true ? "#21ba45" : "#2185d0";
     const buttonContent = unanswered === true ? 'Answer Poll' : 'Results';
 
