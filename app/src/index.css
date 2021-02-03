@@ -13,51 +13,18 @@ code {
 }
 
 .App {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    flex-direction: column;
-    /*border: solid green;*/
+    margin-left: 250px;
+    margin-right: 250px;
 }
 
-.Content {
-    width: 80%;
-    /*border: solid red;*/
+.Login {
+    margin-top: 70px;
 }
 
-.NewPoll {
-    position: relative;
-    margin-left: 33.3%;
-    margin-top: 5%;
-    width: 33.3%;
-    /*border: solid blue;*/
-
+.Content{
+    margin-top: 40px;
 }
-
-.Login-box {
-    margin: 90px;
-    /*border: solid red;*/
-
-}
-
-.Login-Image {
-    height: 200px;
-    width: 200px;
-}
-
-.UserCard {
-    width: 550px;
-    margin: 6px;
-}
-
-.Home {
-    border: solid purple;
-    width: 600px;
-}
-
-.Leaderboard {
-    width: 600px;
-    height: 500px;
-    margin: 10px;
+.ui.radio.checkbox {
+  margin-left: 30px;
+  margin-bottom: 4px;
 }

@@ -43,35 +43,33 @@ function NewPoll({authedUser, handleSaveQuestion, history}) {
     }
 
     return (
-        <div className="NewPoll">
-            <Segment>
-                {isLoading && (
-                    <Dimmer active inverted>
-                        <Loader content="Updating"/>
-                    </Dimmer>
-                )}
-                <h2>Complete the question:</h2>
-                <Header>Would you rather...</Header>
-                <Form onSubmit={handleSubmit}>
-                    <Form.Input
-                        id="optionOne"
-                        placeholder="Enter first option..."
-                        value={optionOneText}
-                        onChange={handleOptionsOneChange}
-                        required
-                    />
-                    <Divider horizontal>Or</Divider>
-                    <Form.Input
-                        id="optionTwo"
-                        placeholder="Enter second option..."
-                        value={optionTwoText}
-                        onChange={handleOptionsTwoChange}
-                        required
-                    />
-                    <Form.Button content="submit" positive disabled={disabled} fluid/>
-                </Form>
-            </Segment>
-        </div>
+        <Segment>
+            {isLoading && (
+                <Dimmer active inverted>
+                    <Loader content="Updating"/>
+                </Dimmer>
+            )}
+            <h2>Complete the question:</h2>
+            <Header>Would you rather...</Header>
+            <Form onSubmit={handleSubmit}>
+                <Form.Input
+                    id="optionOne"
+                    placeholder="Enter first option..."
+                    value={optionOneText}
+                    onChange={handleOptionsOneChange}
+                    required
+                />
+                <Divider horizontal>Or</Divider>
+                <Form.Input
+                    id="optionTwo"
+                    placeholder="Enter second option..."
+                    value={optionTwoText}
+                    onChange={handleOptionsTwoChange}
+                    required
+                />
+                <Form.Button content="submit" positive disabled={disabled} fluid/>
+            </Form>
+        </Segment>
     );
 }
 

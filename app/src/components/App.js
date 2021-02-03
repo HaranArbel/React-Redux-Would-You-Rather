@@ -13,6 +13,10 @@ import UserCard from "./UserCard";
 import Nav from "./Nav";
 import Home from './Home';
 import Login from './Login';
+import {
+    Grid,
+} from 'semantic-ui-react';
+import NotFound from "./NotFound";
 
 function App({handleInitialData, authedUser}) {
 
@@ -24,21 +28,40 @@ function App({handleInitialData, authedUser}) {
         <div className="App">
             <LoadingBar/>
             {authedUser === null ?
-                <Route path="/" component={Login}/>
+                (<Route render={() => (
+                    <ContentGrid>
+                        <Login/>
+                    </ContentGrid>
+                )}>
+                </Route>)
                 :
-                <div className="Content">
-                    <Nav/>
-                    <Switch>
-                        <Route exact path='/' component={Home}/>
-                        <Route path='/add' component={NewPoll}/>
-                        <Route path='/leaderboard' component={Leaderboard}/>
-                        <Route path="/questions/:question_id" component={UserCard}/>
-                    </Switch>
+                <div>
+                    <Nav className="Nav"/>
+                    <ContentGrid>
+                        <Switch>
+                            <Route exact path='/' component={Home}/>
+                            <Route path="/questions/not_found" component={NotFound}/>
+                            <Route path="/questions/:question_id" component={UserCard}/>
+                            <Route path='/add' component={NewPoll}/>
+                            <Route path='/leaderboard' component={Leaderboard}/>
+                            <Route component={NotFound}/>
+                        </Switch>
+                    </ContentGrid>
                 </div>
             }
         </div>
     );
 }
+
+const ContentGrid = ({children}) => (
+    <div className="Content">
+        <Grid padded="vertically" columns={1} centered>
+            <Grid.Row>
+                <Grid.Column style={{maxWidth: 550}}>{children}</Grid.Column>
+            </Grid.Row>
+        </Grid>
+    </div>
+);
 
 function mapStateToProps({authedUser}) {
     return {

@@ -7,7 +7,8 @@ import {
     Form,
     Header,
     Image,
-    Segment
+    Segment,
+    Grid
 } from 'semantic-ui-react';
 
 function Login({users, setAuthedUser}) {
@@ -33,32 +34,34 @@ function Login({users, setAuthedUser}) {
     };
 
     return (
-        <div className="Login-box">
-            <Segment>
-                <Header as="h1">
-                    Welcome to the Would You Rather App!
-                </Header>
-                <Header as="h2">
-                    Please sign in to continue
-                </Header>
-                <Image centered size="small" src="/images/avatars/tiger.jpg" alt="login image"/>
-                <Form onSubmit={handleSubmit}>
-                    <Header as="h2" color="grey">
-                        Sign In
+        <div className="Login">
+            <Grid>
+                <Segment padded="very">
+                    <Header as="h1" textAlign="center">
+                        Welcome to the Would You Rather App!
                     </Header>
-                    <Form.Dropdown
-                        placeholder="Select a user"
-                        fluid
-                        selection
-                        scrolling
-                        options={generateDropdownData()}
-                        value={value}
-                        onChange={onChange}
-                        require
-                    />
-                    <Form.Button content="Login" positive disabled={disabled} fluid/>
-                </Form>
-            </Segment>
+                    <Header as="h2" textAlign="center">
+                        Please sign in to continue
+                    </Header>
+                    <Image centered size="small" src="/images/avatars/tiger.jpg" alt="login image"/>
+                    <Form onSubmit={handleSubmit}>
+                        <Header as="h2" color="grey" textAlign="center">
+                            Sign In
+                        </Header>
+                        <Form.Dropdown
+                            placeholder="Select a user"
+                            fluid
+                            selection
+                            scrolling
+                            options={generateDropdownData()}
+                            value={value}
+                            onChange={onChange}
+                            require
+                        />
+                        <Form.Button content="Login" positive disabled={disabled} fluid/>
+                    </Form>
+                </Segment>
+            </Grid>
         </div>
     );
 }
