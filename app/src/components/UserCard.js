@@ -32,11 +32,12 @@ const PollContent = ({pollStatus, question, unanswered}) => {
 
 function UserCard({question, author, pollStatus, unanswered, qid}) {
 
-    const borderTop = unanswered === true ? `2px solid #21ba45` : `2px solid #33B5FF`;
+    let borderTop = unanswered === true || pollStatus === PollStatus.POLL_QUESTION ? `2px solid #21ba45` : `2px solid #33B5FF`;
 
     return (
+        <Grid centered padded>
         <div className="UserCard">
-            <Segment size="large">
+            <Segment padded size="large">
                 <Header
                     as="h4"
                     textAlign="left"
@@ -63,6 +64,7 @@ function UserCard({question, author, pollStatus, unanswered, qid}) {
                 </Grid>
             </Segment>
         </div>
+            </Grid>
     );
 }
 
