@@ -14,12 +14,12 @@ import {handleSaveQuestion} from "../actions/questions";
 
 function NewPoll({authedUser, handleSaveQuestion, history}) {
 
-    const [optionOne, setOptionOne] = useState('')
-    const [optionTwo, setOptionTwo] = useState('')
+    const [optionOneText, setOptionOne] = useState('')
+    const [optionTwoText, setOptionTwo] = useState('')
     const [isLoading, setIsLoading] = useState(false)
     const [formSubmitted, setFormSubmitted] = useState(false)
 
-    const disabled = optionOne === '' || optionTwo === '' ? true : false;
+    const disabled = optionOneText === '' || optionTwoText === '' ? true : false;
 
     const handleOptionsOneChange = (e, {value}) => {
         setOptionOne(value);
@@ -30,7 +30,7 @@ function NewPoll({authedUser, handleSaveQuestion, history}) {
     const handleSubmit = e => {
         e.preventDefault();
         setIsLoading(true);
-        handleSaveQuestion(optionOne, optionTwo, authedUser).then(() => {
+        handleSaveQuestion(optionOneText, optionTwoText, authedUser).then(() => {
             setOptionOne('')
             setOptionTwo('')
             setIsLoading(false)
@@ -56,7 +56,7 @@ function NewPoll({authedUser, handleSaveQuestion, history}) {
                     <Form.Input
                         id="optionOne"
                         placeholder="Enter first option..."
-                        value={optionOne}
+                        value={optionOneText}
                         onChange={handleOptionsOneChange}
                         required
                     />
@@ -64,7 +64,7 @@ function NewPoll({authedUser, handleSaveQuestion, history}) {
                     <Form.Input
                         id="optionTwo"
                         placeholder="Enter second option..."
-                        value={optionTwo}
+                        value={optionTwoText}
                         onChange={handleOptionsTwoChange}
                         required
                     />

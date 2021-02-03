@@ -36,35 +36,35 @@ function UserCard({question, author, pollStatus, unanswered, qid}) {
 
     return (
         <Grid centered padded>
-        <div className="UserCard">
-            <Segment padded size="large">
-                <Header
-                    as="h4"
-                    textAlign="left"
-                    block
-                    attached="top"
-                    style={{borderTop: borderTop}}
-                >
-                    {author.name} asks:
-                </Header>
+            <div className="UserCard">
+                <Segment padded size="large">
+                    <Header
+                        as="h4"
+                        textAlign="left"
+                        block
+                        attached="top"
+                        style={{borderTop: borderTop}}
+                    >
+                        {author.name} asks:
+                    </Header>
 
-                <Grid divided padded>
-                    <Grid.Row>
-                        <Grid.Column width={5}>
-                            <Image size="small" src={author.avatarURL}/>
-                        </Grid.Column>
-                        <Grid.Column width={11}>
-                            <PollContent
-                                pollStatus={pollStatus}
-                                question={question}
-                                unanswered={unanswered}
-                            />
-                        </Grid.Column>
-                    </Grid.Row>
-                </Grid>
-            </Segment>
-        </div>
-            </Grid>
+                    <Grid divided padded>
+                        <Grid.Row>
+                            <Grid.Column width={5}>
+                                <Image size="small" src={author.avatarURL}/>
+                            </Grid.Column>
+                            <Grid.Column width={11}>
+                                <PollContent
+                                    pollStatus={pollStatus}
+                                    question={question}
+                                    unanswered={unanswered}
+                                />
+                            </Grid.Column>
+                        </Grid.Row>
+                    </Grid>
+                </Segment>
+            </div>
+        </Grid>
     );
 }
 

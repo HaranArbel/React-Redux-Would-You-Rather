@@ -1,13 +1,14 @@
-import React, {useState} from 'react'
+import React, {Fragment, useState} from 'react'
 import {connect} from "react-redux";
+import {withRouter} from 'react-router-dom'
 import {
     Form,
     Radio,
-    Header
+    Header,
 } from "semantic-ui-react";
 import {handleSaveQuestionAnswer} from '../actions/users'
 
-function PollQuestion({question, authedUser}) {
+function PollQuestion({question, authedUser, history, handleSaveQuestionAnswer}) {
 
     const [value, setValue] = useState('')
     const disabled = value === '' ? true : false;
@@ -19,10 +20,11 @@ function PollQuestion({question, authedUser}) {
     const handleSubmit = e => {
         e.preventDefault();
         handleSaveQuestionAnswer(authedUser, question.id, value)
+        history.push('/')
     };
 
     return (
-        <div className="Poll">
+        <Fragment>
             <Header as="h3">Would you rather</Header>
             <Form onSubmit={handleSubmit}>
                 <Form.Field
@@ -41,16 +43,19 @@ function PollQuestion({question, authedUser}) {
                 />
                 <Form.Button content="submit" positive disabled={disabled} fluid/>
             </Form>
-        </div>
+        </Fragment>
     );
 }
 
 
 function mapStateToProps({authedUser}) {
     return {
-        authedUser
+        authedUser,
     };
 }
 
-export default connect(mapStateToProps)(PollQuestion);
+export default withRouter(connect(
+    mapStateToProps,
+    {handleSaveQuestionAnswer}
+)(PollQuestion));
 

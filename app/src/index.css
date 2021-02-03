@@ -49,17 +49,7 @@ code {
 .UserCard {
     width: 550px;
     margin: 6px;
-    /*border: pink solid;*/
-    /*position: relative;*/
-    /*margin-left: 33.3%;*/
-    /*margin-top: 5%;*/
-    /*width: 33.3%;*/
 }
-
-.UserCardContainer {
-    /*width:700px;*/
-}
-
 
 .Home {
     border: solid purple;

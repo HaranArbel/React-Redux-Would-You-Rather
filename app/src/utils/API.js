@@ -9,8 +9,8 @@ export function saveQuestion(question) {
     return _saveQuestion(question)
 }
 
-export function saveQuestionAnswer(authUser, qid, answer) {
-  return _saveQuestionAnswer({ authUser, qid, answer });
+export function saveQuestionAnswer(authedUser, qid, answer) {
+  return _saveQuestionAnswer({ authedUser, qid, answer });
 }
 
 export function getInitialData() {
