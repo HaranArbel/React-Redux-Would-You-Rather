@@ -31,7 +31,7 @@ function Nav({users, authedUser, setAuthedUser, location}) {
                             size="mini"
                             verticalAlign="bottom"
                         />
-                        {users[authedUser].name}
+                        Hello, {users[authedUser].name}!
                         </span>
                     </Menu.Item>
                     <Menu.Item>
