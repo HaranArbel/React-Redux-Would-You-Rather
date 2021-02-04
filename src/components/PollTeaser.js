@@ -8,13 +8,8 @@ import {
 
 function PollQuestion({question, unanswered}) {
 
-    // const [value, setValue] = useState('')
     const buttonColor = unanswered === true ? `green` : `blue`;
     const buttonContent = unanswered === true ? 'Answer Poll' : 'Results';
-
-    // const handleOnClick = (e, {value}) => {
-    //     setValue(value);
-    // };
 
     return (
         <div>
@@ -32,7 +27,6 @@ function PollQuestion({question, unanswered}) {
                     color={buttonColor}
                     size="tiny"
                     fluid
-                    // onClick={handleOnClick}
                     content={buttonContent}
                 />
             </Link>
