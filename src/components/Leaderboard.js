@@ -11,65 +11,95 @@ import {
 
 const trophyColor = ['yellow', 'grey', 'orange'];
 
-function Leaderboard({leaderboardData}) {
+function Leaderboard({topPlayersData}) {
 
     return (
         <Grid centered padded>
-            {leaderboardData.map((user, idx) => (
-                <Segment.Group key={user.id}>
-                    <Label corner="left" icon="trophy" color={trophyColor[idx]}/>
-                    <Grid divided padded>
-                        <Grid.Row>
-                            <Grid.Column width={4} verticalAlign="middle">
-                                <Image src={user.avatarURL}/>
-                            </Grid.Column>
-                            <Grid.Column width={8}>
-                                <Header as="h3" textAlign="left">
-                                    {user.name}
-                                </Header>
-                                <Grid>
-                                    <Grid.Column width={12}>Answered questions</Grid.Column>
-                                    <Grid.Column width={4}>{user.answerCount}</Grid.Column>
-                                </Grid>
-                                <Divider/>
-                                <Grid>
-                                    <Grid.Column width={12}>Created questions</Grid.Column>
-                                    <Grid.Column width={4}>{user.questionCount}</Grid.Column>
-                                </Grid>
-                            </Grid.Column>
-                            <Grid.Column width={4} textAlign="center">
-                                <Segment.Group>
-                                    <Header as="h5" block attached="top" content="Score"/>
-                                    <Segment>
-                                        <Label circular color="green" size="big">
-                                            {user.questionCount + user.answerCount}
-                                        </Label>
-                                    </Segment>
-                                </Segment.Group>
-                            </Grid.Column>
-                        </Grid.Row>
-                    </Grid>
-                </Segment.Group>
+            {topPlayersData.map((user, idx) => (
+                <Card user={user} idx={idx}></Card>
             ))}
         </Grid>
     );
 }
 
+function Card({user, idx}) {
+    return (
+        <Segment.Group key={user.id}>
+            <Label corner="left" icon="trophy" color={trophyColor[idx]}/>
+            <Grid divided padded>
+                <Grid.Row>
+                    <PlayerImage user={user}/>
+                    <QuestionCount user={user}/>
+                    <Score user={user}/>
+                </Grid.Row>
+            </Grid>
+        </Segment.Group>
+    );
+
+}
+
+function QuestionCount({user}) {
+    return (
+        <Grid.Column width={8}>
+            <Header as="h3" textAlign="left">
+                {user.name}
+            </Header>
+            <Grid>
+                <Grid.Column width={12}>Answered questions</Grid.Column>
+                <Grid.Column width={4}>{user.numAnswered}</Grid.Column>
+            </Grid>
+            <Divider/>
+            <Grid>
+                <Grid.Column width={12}>Created questions</Grid.Column>
+                <Grid.Column width={4}>{user.numCreated}</Grid.Column>
+            </Grid>
+        </Grid.Column>
+    );
+}
+
+function PlayerImage({user}) {
+    return (
+        <Grid.Column width={4} verticalAlign="middle">
+            <Image src={user.avatarURL}/>
+        </Grid.Column>
+    );
+}
+
+function Score({user}) {
+    return (
+        <Grid.Column width={4} textAlign="center">
+            <Segment.Group>
+                <Header as="h5" block attached="top" content="Score"/>
+                <Segment>
+                    <Label circular color="pink" size="big">
+                        {user.score}
+                    </Label>
+                </Segment>
+            </Segment.Group>
+        </Grid.Column>
+    );
+}
+
 function mapStateToProps({users}) {
-    const leaderboardData = Object.values(users)
-        .map(user => ({
-            id: user.id,
-            name: user.name,
-            avatarURL: user.avatarURL,
-            answerCount: Object.values(user.answers).length,
-            questionCount: user.questions.length,
-            score: Object.values(user.answers).length + user.questions.length
-        }))
+    const topPlayersData = Object.values(users)
+        .map(user => {
+            const numAnswered = Object.values(user.answers).length;
+            const numCreated = user.questions.length;
+            return (
+                {
+                    id: user.id,
+                    name: user.name,
+                    avatarURL: user.avatarURL,
+                    numAnswered: numAnswered,
+                    numCreated: numCreated,
+                    score: numAnswered + numCreated
+                });
+        })
         .sort((a, b) => a.score - b.score)
         .reverse()
         .slice(0, 3);
     return {
-        leaderboardData
+        topPlayersData
     };
 }
 

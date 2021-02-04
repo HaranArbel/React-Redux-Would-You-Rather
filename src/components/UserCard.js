@@ -17,20 +17,6 @@ const PollStatus = {
     POLL_RESULT: 'POLL_RESULT'
 }
 
-const PollContent = ({pollStatus, question, unanswered}) => {
-    switch (pollStatus) {
-        case PollStatus.POLL_TEASER:
-            return <PollTeaser question={question} unanswered={unanswered}/>;
-        case PollStatus.POLL_QUESTION:
-            return <PollQuestion question={question}/>;
-        case PollStatus.POLL_RESULT:
-            return <PollResult question={question}/>;
-        default:
-            return;
-    }
-};
-
-
 function UserCard({question, author, pollStatus, unanswered, qid, pollNotFound}) {
 
     let borderTop = unanswered === true || pollStatus === PollStatus.POLL_QUESTION ? `2px solid #21ba45` : `2px solid grey`;
@@ -69,6 +55,21 @@ function UserCard({question, author, pollStatus, unanswered, qid, pollNotFound})
 
     );
 }
+
+
+const PollContent = ({pollStatus, question, unanswered}) => {
+    switch (pollStatus) {
+        case PollStatus.POLL_TEASER:
+            return <PollTeaser question={question} unanswered={unanswered}/>;
+        case PollStatus.POLL_QUESTION:
+            return <PollQuestion question={question}/>;
+        case PollStatus.POLL_RESULT:
+            return <PollResult question={question}/>;
+        default:
+            return;
+    }
+};
+
 
 function mapStateToProps({authedUser, users, questions}, {qid, match}) {
 

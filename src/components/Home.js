@@ -9,28 +9,12 @@ function Home({userQuestionData}) {
     const panes = [
         {
             menuItem: 'Unanswered', render: () => (
-                <Tab.Pane>
-                    {userQuestionData.answered.map(question => (
-                        <UserCard
-                            key={question.id}
-                            qid={question.id}
-                            unanswered={true}
-                        />
-                    ))}
-                </Tab.Pane>
+                <Pane data={userQuestionData.unanswered} unanswered={true}/>
             )
         },
         {
             menuItem: 'Answered', render: () => (
-                <Tab.Pane>
-                    {userQuestionData.unanswered.map(question => (
-                        <UserCard
-                            key={question.id}
-                            qid={question.id}
-                            unanswered={false}
-                        />
-                    ))}
-                </Tab.Pane>
+                <Pane data={userQuestionData.answered} unanswered={false}/>
             )
         }
     ];
@@ -41,13 +25,27 @@ function Home({userQuestionData}) {
 }
 
 
+function Pane({data, unanswered}) {
+    return (
+        <Tab.Pane>
+            {data.map(question => (
+                <UserCard
+                    key={question.id}
+                    qid={question.id}
+                    unanswered={unanswered === true}
+                />
+            ))}
+        </Tab.Pane>
+    );
+}
+
 function mapStateToProps({authedUser, users, questions}) {
     const answeredIds = Object.keys(users[authedUser].answers);
     const answered = Object.values(questions)
-        .filter(question => !answeredIds.includes(question.id))
+        .filter(question => answeredIds.includes(question.id))
         .sort((a, b) => b.timestamp - a.timestamp);
     const unanswered = Object.values(questions)
-        .filter(question => answeredIds.includes(question.id))
+        .filter(question => !answeredIds.includes(question.id))
         .sort((a, b) => b.timestamp - a.timestamp);
 
     return {

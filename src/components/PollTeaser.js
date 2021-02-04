@@ -25,8 +25,8 @@ function PollQuestion({question, unanswered}) {
             <Link to={`/questions/${question.id}`}>
                 <Button
                     color={buttonColor}
-                    size="tiny"
                     fluid
+                    size="tiny"
                     content={buttonContent}
                 />
             </Link>

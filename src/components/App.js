@@ -28,12 +28,9 @@ function App({handleInitialData, authedUser}) {
         <div className="App">
             <LoadingBar/>
             {authedUser === null ?
-                (<Route render={() => (
-                    <ContentGrid>
-                        <Login/>
-                    </ContentGrid>
-                )}>
-                </Route>)
+                <ContentGrid>
+                    <Route path='/' component={Login}/>
+                </ContentGrid>
                 :
                 <div>
                     <Nav className="Nav"/>
@@ -57,7 +54,7 @@ const ContentGrid = ({children}) => (
     <div className="Content">
         <Grid padded="vertically" columns={1} centered>
             <Grid.Row>
-                <Grid.Column style={{maxWidth: 550}}>{children}</Grid.Column>
+                <Grid.Column style={{maxWidth: 600}}>{children}</Grid.Column>
             </Grid.Row>
         </Grid>
     </div>

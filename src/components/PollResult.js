@@ -11,8 +11,8 @@ import {
 } from 'semantic-ui-react';
 
 const YourVoteLabel = () => (
-    <Label color="orange" ribbon="right" className="vote">
-        <Icon name="check circle outline" size="big" className="compact"/>
+    <Label color="violet" ribbon="right" className="vote">
+        <Icon name="thumbs up" size="big" className="compact"/>
         <div style={{float: 'right'}}>
             Your
             <br/>
@@ -24,62 +24,66 @@ const YourVoteLabel = () => (
 function PollResult({question, user, history}) {
     const optionOneVotes = question.optionOne.votes.length;
     const optionTwoVotes = question.optionTwo.votes.length;
-    const votesTotal = optionOneVotes + optionTwoVotes;
+    const totalVotes = optionOneVotes + optionTwoVotes;
     const userVote = user.answers[question.id];
 
-    const secondary = {color: 'grey', bgColor: '#f4f4f4'}
-    const primary = {color: 'green', bgColor: '#honeydew'}
+    const secondary = {color: 'teal', BackgroundColor: '#f4f4f4'}
+    const primary = {color: 'yellow', BackgroundColor: '#f4f4f44'}
     let optionOne = secondary,
         optionTwo = secondary;
 
     optionOneVotes > optionTwoVotes ? optionOne = primary : optionTwo = primary;
 
-    const handleClick = () => {
+    const handleOnClick = () => {
         history.push('/');
     };
 
     return (
-        <Fragment>
+        <div>
             <Header as="h3">
                 Results:
                 <Header.Subheader style={{fontWeight: 'bold'}}>
                     Would you rather
                 </Header.Subheader>
             </Header>
-            <Segment
-                color={optionOne.color}
-                style={{backgroundColor: `${optionOne.bgColor}`}}
-            >
-                {userVote === 'optionOne' && <YourVoteLabel/>}
-                <p style={{fontWeight: 'bold'}}>{question.optionOne.text}</p>
-                <Progress
-                    percent={((optionOneVotes / votesTotal) * 100).toFixed(2)}
-                    progress
-                    color={optionOne.color}
-                >
-                    {optionOneVotes} out of {votesTotal} votes
-                </Progress>
-            </Segment>
-            <Segment
-                color={optionTwo.color}
-                style={{backgroundColor: `${optionTwo.bgColor}`}}
-            >
-                {userVote === 'optionTwo' && <YourVoteLabel/>}
-
-                <p style={{fontWeight: 'bold'}}>{question.optionTwo.text}</p>
-                <Progress
-                    percent={((optionTwoVotes / votesTotal) * 100).toFixed(2)}
-                    progress
-                    color={optionTwo.color}
-                >
-                    {optionTwoVotes} out of {votesTotal} votes
-                </Progress>
-            </Segment>
-            <Button size="tiny" floated="right" onClick={handleClick}>
+            <VotesCard
+                option={optionOne}
+                showYourVote={userVote === 'optionOne'}
+                question={question}
+                totalVotes={totalVotes}
+                votes={optionOneVotes}
+            />
+            <VotesCard
+                option={optionTwo}
+                showYourVote={userVote === 'optionTwo'}
+                question={question}
+                totalVotes={totalVotes}
+                votes={optionTwoVotes}
+            />
+            <Button color="pink" size="tiny" floated="right" onClick={handleOnClick}>
                 Back
             </Button>
-        </Fragment>
+        </div>
     )
+}
+
+function VotesCard({option, showYourVote, question, totalVotes, votes}) {
+    return (
+        <Segment
+            color={option.color}
+            style={{backgroundColor: `${option.BackgroundColor}`}}
+        >
+            {showYourVote === true && <YourVoteLabel/>}
+            <p style={{fontWeight: 'bold'}}>{question.optionTwo.text}</p>
+            <Progress
+                percent={((votes / totalVotes) * 100).toFixed(2)}
+                progress
+                color={option.color}
+            >
+                {votes} votes
+            </Progress>
+        </Segment>
+    );
 }
 
 function mapStateToProps({users, authedUser}) {
