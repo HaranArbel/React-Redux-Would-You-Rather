@@ -9,8 +9,6 @@ import {
     Divider
 } from 'semantic-ui-react';
 
-const trophyColor = ['yellow', 'grey', 'orange'];
-
 function Leaderboard({topPlayersData}) {
 
     return (
@@ -23,6 +21,8 @@ function Leaderboard({topPlayersData}) {
 }
 
 function Card({user, idx}) {
+    const trophyColor = ['yellow', 'grey', 'orange'];
+
     return (
         <Segment.Group key={user.id}>
             <Label corner="left" icon="trophy" color={trophyColor[idx]}/>

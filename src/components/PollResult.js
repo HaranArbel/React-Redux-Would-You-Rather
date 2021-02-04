@@ -27,8 +27,8 @@ function PollResult({question, user, history}) {
     const totalVotes = optionOneVotes + optionTwoVotes;
     const userVote = user.answers[question.id];
 
-    const secondary = {color: 'teal', BackgroundColor: '#f4f4f4'}
-    const primary = {color: 'yellow', BackgroundColor: '#f4f4f44'}
+    const secondary = {color: 'teal'}
+    const primary = {color: 'yellow'}
     let optionOne = secondary,
         optionTwo = secondary;
 
@@ -49,14 +49,14 @@ function PollResult({question, user, history}) {
             <VotesCard
                 option={optionOne}
                 showYourVote={userVote === 'optionOne'}
-                question={question}
+                answer={question.optionOne.text}
                 totalVotes={totalVotes}
                 votes={optionOneVotes}
             />
             <VotesCard
                 option={optionTwo}
                 showYourVote={userVote === 'optionTwo'}
-                question={question}
+                answer={question.optionTwo.text}
                 totalVotes={totalVotes}
                 votes={optionTwoVotes}
             />
@@ -67,14 +67,14 @@ function PollResult({question, user, history}) {
     )
 }
 
-function VotesCard({option, showYourVote, question, totalVotes, votes}) {
+function VotesCard({option, showYourVote, answer, totalVotes, votes}) {
     return (
         <Segment
             color={option.color}
-            style={{backgroundColor: `${option.BackgroundColor}`}}
+            style={{backgroundColor: showYourVote ? '#f4f4f4' : ''}}
         >
             {showYourVote === true && <YourVoteLabel/>}
-            <p style={{fontWeight: 'bold'}}>{question.optionTwo.text}</p>
+            <p style={{fontWeight: 'bold'}}>{answer}</p>
             <Progress
                 percent={((votes / totalVotes) * 100).toFixed(2)}
                 progress
