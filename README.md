@@ -7,9 +7,9 @@ It's built with React, Redux, React Router & Redux Thunk.
 Check out the [app](https://would-you-rather-react-redux.herokuapp.com/) demo.
  
 
-![app home_page](/public/images/app_screenshot.png)
+![app home page](/public/images/app_home_page.png)
 
-![app leaderboard](/public/images/app_screenshot2.png)
+![app leaderboard](/public/images/app_leaderboard.png)
 
 
 
